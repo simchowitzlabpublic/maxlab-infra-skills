@@ -48,12 +48,17 @@ agent gets the same instructions.
   the command that proves it nearby. On the documented partitions, explicit
   `--requeue` and the partition's matching `--qos=` are redundant.
 - Assume capable agents; omit generic Slurm, shell, and debugging tutorials.
+- Name a third-party API only when its default or constraint is a trap; give the
+  symbol, never versions or full call signatures, and prefer a short local
+  implementation to a new dependency.
 - Keep `examples/` runnable and comments limited to Babel-specific traps. They are
   illustrative, not scaffolding; never write guidance that tells an agent to start
   from one, and do not reintroduce the name "templates".
 - Use plain Markdown; add automation only when deterministic enforcement clearly
   justifies the review surface.
 - Keep this file short; it is always loaded by agents working in this repo.
+- `README.md` carries the token budget per loading tier; refresh it with the
+  command there whenever a `SKILL.md`, reference, or example changes size.
 - Put Codex metadata in `skills/<name>/agents/openai.yaml`; `bin/install.sh` links
   skills into `~/.agents/skills/`.
 

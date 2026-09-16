@@ -33,7 +33,12 @@ preempt eligible jobs from any cluster user; that is expected and allowed.
 
 Require durable checkpoints, automatic full-state resume, atomic writes, stable run
 paths, and append-only logs. Requeue is already on (`JobRequeue=1`); never set
-`--no-requeue`. Read `references/preemption.md` for the requirements.
+`--no-requeue`. Preemption is routine and usually early — most jobs go within the
+hour — so `preempt` suits only work that genuinely restarts.
+
+Read `references/preemption.md` for the requirements and how preemption arrives, and
+`references/checkpointing.md` when writing or changing code that must survive a
+restart.
 
 `examples/preempt.sbatch` is a worked example of those requirements, not a
 structure to adopt. Fit the user's existing layout, tooling, and checkpoint format;
